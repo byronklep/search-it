@@ -39,3 +39,24 @@ a:link {
 .grow:hover {
   transform: scale(1.1);
 }
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .image-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .image-container {
+    grid-template-columns: 1fr;
+  }
+  .image-search {
+    text-align: center;
+  }
+}

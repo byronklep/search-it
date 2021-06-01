@@ -1,7 +1,9 @@
+import ImageSearchContainer from './components/ImageSearchContainer'
+
 const Image = () => {
   return (
     <div>
-      <h1>Image</h1>
+      <ImageSearchContainer />
     </div>
   )
 }
