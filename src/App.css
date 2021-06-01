@@ -4,7 +4,11 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 130px;
+}
+
+a:link {
+  text-decoration: none;
 }
 .footer {
   position: absolute;
@@ -13,6 +17,20 @@ body {
   margin-top: 20px;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background: #f37a1d;
-  border-top: 3px solid #f37a1d;
+  background: #f7f7f7;
+  border-top: 3px solid #f7f7f7;
 }
+
+.card {
+  border: none;
+  -webkit-box-shadow: 0px 21px 28px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 21px 28px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 21px 28px 0px rgba(0, 0, 0, 0.75);
+}
+
+.card-details {
+  border: none;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }

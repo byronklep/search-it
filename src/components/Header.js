@@ -4,7 +4,7 @@ import { FaSistrix } from 'react-icons/fa'
 const Header = () => {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="light" variant="light">
         <Navbar.Brand href="/">
           <FaSistrix size={36} />
           Search It!
