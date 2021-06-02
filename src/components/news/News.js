@@ -1,8 +1,10 @@
+import NewsSearchContainer from './components/NewsSearchContainer'
+
 const News = () => {
   return (
-    <div>
-      <h1>News</h1>
-    </div>
+    <>
+      <NewsSearchContainer />
+    </>
   )
 }
 

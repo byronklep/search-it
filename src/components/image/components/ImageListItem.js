@@ -1,10 +1,10 @@
 import { Container } from 'react-bootstrap'
 
-const ListItem = ({ fungus }) => {
+const ImageListItem = ({ fungus }) => {
   return (
     <>
       <Container className="image-search">
-        <a href={fungus.url}>
+        <a href={fungus.url} target="_blank" rel="noreferrer">
           <img
             src={fungus.url}
             onError={(e) => {
@@ -22,4 +22,4 @@ const ListItem = ({ fungus }) => {
   )
 }
 
-export default ListItem
+export default ImageListItem

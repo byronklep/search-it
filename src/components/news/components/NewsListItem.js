@@ -1,6 +1,7 @@
 import { ListGroup, ListGroupItem } from 'react-bootstrap'
+import Moment from 'react-moment'
 
-const ListItem = ({ fungus }) => {
+const NewsListItem = ({ fungus }) => {
   return (
     <>
       <div className="card mb-4 grow">
@@ -20,6 +21,9 @@ const ListItem = ({ fungus }) => {
               </a>
             </ListGroupItem>
             <ListGroupItem>{fungus.description}</ListGroupItem>
+            <ListGroupItem>
+              <Moment format="MM/DD/YYYY">{fungus.datePublished}</Moment>
+            </ListGroupItem>
           </ListGroup>
         </div>
       </div>
@@ -27,4 +31,4 @@ const ListItem = ({ fungus }) => {
   )
 }
 
-export default ListItem
+export default NewsListItem
