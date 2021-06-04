@@ -32,7 +32,7 @@ const PagSearch = () => {
   const [data, setData] = useState([])
   const [isLoaded, setisLoaded] = useState(false)
   const [q, setQ] = useState('')
-  const [pageNumber, setPageNumber] = useState(1)
+  const [totalCount, setTotalCount] = useState(1)
   const [currentPage, setcurrentPage] = useState(0)
 
   //   const URL = `https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?q=${q}&pageNumber=${currentPage}&pageSize=10&autoCorrect=true,`
@@ -53,7 +53,7 @@ const PagSearch = () => {
       .then((body) => {
         console.log(body.value)
         setData([...body.value])
-        setPageNumber(body.totalCount)
+        setTotalCount(body.totalCount)
         setisLoaded(true)
       })
 
@@ -105,8 +105,8 @@ const PagSearch = () => {
       )}
       {isLoaded ? (
         <ReactPaginate
-          pageNumber={pageNumber}
-          pageRange={10}
+          totalCount={totalCount}
+          pageRange={2}
           marginPagesDisplayed={2}
           onPageChange={handlePageChange}
           containerClassName={'container'}
@@ -118,7 +118,7 @@ const PagSearch = () => {
           activeClassName={'active'}
         />
       ) : (
-        <div>Nothing to display</div>
+        <div></div>
       )}
     </div>
   )
