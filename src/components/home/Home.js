@@ -1,9 +1,10 @@
-import SearchContainer from './components/SearchContainer'
+import PagSearch from './components/PagSearch'
 
 const Home = () => {
   return (
     <>
-      <SearchContainer />
+      {/* <SearchContainer /> */}
+      <PagSearch />
     </>
   )
 }
