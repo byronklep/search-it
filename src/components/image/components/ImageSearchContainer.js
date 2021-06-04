@@ -58,7 +58,7 @@ const ImageSearchContainer = () => {
               <input
                 type="text"
                 name="search"
-                placeholder="Enter query"
+                placeholder="Search for an image"
                 value={inputValue}
                 onChange={(e) => setValue(e.target.value)}
                 className="form-control"

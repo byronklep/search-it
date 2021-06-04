@@ -27,20 +27,18 @@ const SearchContainer = () => {
         'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
       },
     }
+
+    setLoading(true)
     axios
       .request(options)
       .then(function (response) {
         setData(response.data.value)
-        console.log(response.data.value)
         setLoading(false)
+        console.log(response.data.value)
       })
       .catch(function (error) {
         console.error(error)
       })
-  }
-
-  if (loading) {
-    return <Spinner animation="grow" variant="info" />
   }
 
   const handleSubmit = (e) => {
@@ -48,7 +46,9 @@ const SearchContainer = () => {
     setFungus(inputValue)
     searchItem()
   }
-
+  if (loading) {
+    return <Spinner animation="grow" variant="info" />
+  }
   return (
     <Container>
       <div className="row m-5">
@@ -58,7 +58,7 @@ const SearchContainer = () => {
               <input
                 type="text"
                 name="search"
-                placeholder="Enter query"
+                placeholder="Search the web"
                 value={inputValue}
                 onChange={(e) => setValue(e.target.value)}
                 className="form-control"
