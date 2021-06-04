@@ -28,7 +28,6 @@ const SearchContainer = () => {
       },
     }
 
-    setLoading(true)
     axios
       .request(options)
       .then(function (response) {
