@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
-import { ListGroup, ListGroupItem } from 'react-bootstrap'
+import {
+  ListGroup,
+  ListGroupItem,
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+} from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import './search.css'
 
@@ -60,22 +68,6 @@ const PagSearch = () => {
       .catch((err) => {
         console.error(err)
       })
-    // fetch(URL, {
-    //   method: 'GET',
-    //   headers: {
-    //     'x-rapidapi-key': 'f53ec3ed8fmsh56cc4f9c74af0edp18b789jsn7fb5469ef1fc',
-    //     'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
-    //   },
-    // })
-    //   .then(function (response) {
-    //     setData(response)
-    //     setPageNumber(response)
-    //     setisLoaded(true)
-    //     console.log(response)
-    //   })
-    //   .catch(function (error) {
-    //     console.error(error)
-    //   })
   }
 
   const handlePageChange = (selectedObject) => {
@@ -84,43 +76,60 @@ const PagSearch = () => {
   }
 
   return (
-    <div>
-      <label>Search</label>
-      <input type="text" onChange={(event) => setQ(event.target.value)} />
-      <button onClick={handleFetch}>Search</button>
+    <section className="search-section">
+      <Container>
+        <Row className="search-input">
+          <Col>
+            <Form as={Row} className="mb-3">
+              <Form.Control
+                type="text"
+                placeholder="Search the web"
+                onChange={(event) => setQ(event.target.value)}
+              />
+            </Form>
+            <Button
+              onClick={handleFetch}
+              variant="primary"
+              className="btn-block"
+              type="submit">
+              Search
+            </Button>
+          </Col>
+        </Row>
 
-      {isLoaded ? (
-        data.map((item) => {
-          return (
-            <SearchCard
-              url={item.url}
-              title={item.title}
-              description={item.description}
-              key={item.id}
-            />
-          )
-        })
-      ) : (
-        <div></div>
-      )}
-      {isLoaded ? (
-        <ReactPaginate
-          totalCount={totalCount}
-          pageRange={2}
-          marginPagesDisplayed={2}
-          onPageChange={handlePageChange}
-          containerClassName={'container'}
-          previousLinkClassName={'page'}
-          breakClassName={'page'}
-          nextLinkClassName={'page'}
-          pageClassName={'page'}
-          disabledClassNae={'disabled'}
-          activeClassName={'active'}
-        />
-      ) : (
-        <div></div>
-      )}
-    </div>
+        {isLoaded ? (
+          data.map((item) => {
+            return (
+              <SearchCard
+                url={item.url}
+                title={item.title}
+                description={item.description}
+                key={item.id}
+              />
+            )
+          })
+        ) : (
+          <div></div>
+        )}
+        {isLoaded ? (
+          <ReactPaginate
+            totalCount={totalCount}
+            pageRange={2}
+            marginPagesDisplayed={2}
+            onPageChange={handlePageChange}
+            containerClassName={'pag-container'}
+            previousLinkClassName={'page'}
+            breakClassName={'page'}
+            nextLinkClassName={'page'}
+            pageClassName={'page'}
+            disabledClassNae={'disabled'}
+            activeClassName={'active'}
+          />
+        ) : (
+          <div></div>
+        )}
+      </Container>
+    </section>
   )
 }
 

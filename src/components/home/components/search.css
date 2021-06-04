@@ -1,4 +1,4 @@
-.container {
+.pag-container {
   display: flex;
   list-style: none;
 }
@@ -36,4 +36,12 @@
   border-radius: 6px;
   margin-right: 10px;
   cursor: pointer;
+}
+
+.search-section {
+  margin: 60px 40px;
+}
+
+.search-input {
+  margin-bottom: 3em;
 }
