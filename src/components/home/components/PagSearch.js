@@ -1,13 +1,6 @@
 import React, { useState } from 'react'
-import {
-  ListGroup,
-  ListGroupItem,
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
-} from 'react-bootstrap'
+import { ListGroup, ListGroupItem, Container } from 'react-bootstrap'
+import { FaSistrix } from 'react-icons/fa'
 import ReactPaginate from 'react-paginate'
 import './search.css'
 
@@ -43,8 +36,6 @@ const PagSearch = () => {
   const [totalCount, setTotalCount] = useState(1)
   const [currentPage, setcurrentPage] = useState(0)
 
-  //   const URL = `https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?q=${q}&pageNumber=${currentPage}&pageSize=10&autoCorrect=true,`
-
   const handleFetch = () => {
     fetch(
       `https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?q=${q}&pageNumber=${currentPage}&pageSize=10&autoCorrect=true`,
@@ -59,7 +50,7 @@ const PagSearch = () => {
     )
       .then((response) => response.json())
       .then((body) => {
-        console.log(body.value)
+        // console.log(body.value)
         setData([...body.value])
         setTotalCount(body.totalCount)
         setisLoaded(true)
@@ -78,24 +69,44 @@ const PagSearch = () => {
   return (
     <section className="search-section">
       <Container>
-        <Row className="search-input">
+        {/* <Row className="search-input">
           <Col>
-            <Form as={Row} className="mb-3">
+            <Form className="mb-3" inline>
               <Form.Control
                 type="text"
                 placeholder="Search the web"
                 onChange={(event) => setQ(event.target.value)}
               />
+              <Button
+                onClick={handleFetch}
+                variant="primary"
+                className="btn"
+                type="submit">
+                Search
+              </Button>
             </Form>
-            <Button
-              onClick={handleFetch}
-              variant="primary"
-              className="btn-block"
-              type="submit">
-              Search
-            </Button>
           </Col>
-        </Row>
+        </Row> */}
+        <div class="row with-margin">
+          <div class="col-lg-12 mb-5">
+            <div class="input-group input-group-lg">
+              <input
+                type="text"
+                className="form-control input-lg"
+                placeholder="Search the web"
+                onChange={(event) => setQ(event.target.value)}
+              />
+              <span className="input-group-btn">
+                <button
+                  className="btn btn-primary btn-lg"
+                  type="submit"
+                  onClick={handleFetch}>
+                  <FaSistrix />
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
 
         {isLoaded ? (
           data.map((item) => {

@@ -1,6 +1,9 @@
 .pag-container {
   display: flex;
   list-style: none;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
 }
 
 .page {
