@@ -68,28 +68,14 @@ const PagSearch = () => {
 
   return (
     <section className="search-section">
+      <h1 className="text-center mb-5">
+        <FaSistrix size={50} />
+        Search It!
+      </h1>
       <Container>
-        {/* <Row className="search-input">
-          <Col>
-            <Form className="mb-3" inline>
-              <Form.Control
-                type="text"
-                placeholder="Search the web"
-                onChange={(event) => setQ(event.target.value)}
-              />
-              <Button
-                onClick={handleFetch}
-                variant="primary"
-                className="btn"
-                type="submit">
-                Search
-              </Button>
-            </Form>
-          </Col>
-        </Row> */}
-        <div class="row with-margin">
-          <div class="col-lg-12 mb-5">
-            <div class="input-group input-group-lg">
+        <div className="row with-margin">
+          <div className="col-lg-12 mb-5">
+            <div className="input-group input-group-lg">
               <input
                 type="text"
                 className="form-control input-lg"
@@ -134,7 +120,7 @@ const PagSearch = () => {
             nextLinkClassName={'page'}
             pageClassName={'page'}
             disabledClassNae={'disabled'}
-            activeClassName={'active'}
+            activeClassName={'pag-active'}
           />
         ) : (
           <div></div>

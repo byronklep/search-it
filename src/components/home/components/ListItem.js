@@ -1,28 +1,34 @@
 import { ListGroup, ListGroupItem } from 'react-bootstrap'
 
-const ListItem = ({ fungus }) => {
+const ListItem = ({ results, loading }) => {
+  if (loading) {
+    return <h2>Loading...</h2>
+  }
+
   return (
     <>
-      <div className="card mb-4 grow">
-        <div className="card-body">
-          <a href={fungus.url} target="_blank" rel="noreferrer">
-            <h1 className="ml-3">{fungus.title}</h1>
-          </a>
+      {results.map((r) => (
+        <div key={r.id} className="card mb-4 grow">
+          <div className="card-body">
+            <a href={r.url} target="_blank" rel="noreferrer">
+              <h1 className="ml-3">{r.title}</h1>
+            </a>
 
-          <ListGroup variant="flush">
-            <ListGroupItem className="card-details">
-              <a
-                className="text-success"
-                href={fungus.url}
-                target="_blank"
-                rel="noreferrer">
-                {fungus.url}
-              </a>
-            </ListGroupItem>
-            <ListGroupItem>{fungus.description}</ListGroupItem>
-          </ListGroup>
+            <ListGroup variant="flush">
+              <ListGroupItem className="card-details">
+                <a
+                  className="text-success"
+                  href={r.url}
+                  target="_blank"
+                  rel="noreferrer">
+                  {r.url}
+                </a>
+              </ListGroupItem>
+              <ListGroupItem>{r.description}</ListGroupItem>
+            </ListGroup>
+          </div>
         </div>
-      </div>
+      ))}
     </>
   )
 }
