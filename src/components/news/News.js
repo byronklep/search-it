@@ -1,9 +1,9 @@
-import NewsSearchContainer from './components/NewsSearchContainer'
+import NewsPagSearch from './components/NewsPagSearch'
 
 const News = () => {
   return (
     <>
-      <NewsSearchContainer />
+      <NewsPagSearch />
     </>
   )
 }
