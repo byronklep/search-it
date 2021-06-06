@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ListGroup, ListGroupItem, Container } from 'react-bootstrap'
+import { ListGroup, ListGroupItem, Container, Button } from 'react-bootstrap'
 import { FaSistrix } from 'react-icons/fa'
 import ReactPaginate from 'react-paginate'
 import '../../home/components/search.css'
@@ -70,6 +70,35 @@ const NewsPagSearch = () => {
     handleFetch()
   }
 
+  const getTrending = () => {
+    fetch(
+      'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/TrendingNewsAPI?pageNumber=1&pageSize=10&withThumbnails=false&location=us',
+      {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key':
+            'f53ec3ed8fmsh56cc4f9c74af0edp18b789jsn7fb5469ef1fc',
+          'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((body) => {
+        console.log(body)
+        setData([...body.value])
+        setTotalCount(body.totalCount)
+        setisLoaded(true)
+      })
+
+      .catch((err) => {
+        console.error(err)
+      })
+  }
+
+  const handleTrending = () => {
+    getTrending()
+  }
+
   return (
     <>
       <section className="search-section">
@@ -89,12 +118,15 @@ const NewsPagSearch = () => {
                 />
                 <span className="input-group-btn">
                   <button
-                    className="btn btn-primary btn-lg"
+                    className="btn btn-primary btn-lg mr-3 "
                     type="submit"
                     onClick={handleFetch}>
                     <FaSistrix />
                   </button>
                 </span>
+                <Button variant="outline-success" onClick={handleTrending}>
+                  Trending
+                </Button>
               </div>
             </div>
           </div>
