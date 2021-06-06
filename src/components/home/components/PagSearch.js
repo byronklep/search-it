@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { ListGroup, ListGroupItem, Container } from 'react-bootstrap'
 import { FaSistrix } from 'react-icons/fa'
 import ReactPaginate from 'react-paginate'
+import { Link } from 'react-router-dom'
 import './search.css'
 
 const SearchCard = (props) => {
@@ -68,10 +69,12 @@ const PagSearch = () => {
 
   return (
     <section className="search-section">
-      <h1 className="text-center mb-5">
-        <FaSistrix size={50} />
-        Search It!
-      </h1>
+      <Link to="/">
+        <h1 className="text-center mb-5">
+          <FaSistrix size={50} />
+          Search It!
+        </h1>
+      </Link>
       <Container>
         <div className="row with-margin">
           <div className="col-lg-12 mb-5">
@@ -87,7 +90,7 @@ const PagSearch = () => {
                   className="btn btn-primary btn-lg"
                   type="submit"
                   onClick={handleFetch}>
-                  <FaSistrix />
+                  <FaSistrix size={28} />
                 </button>
               </span>
             </div>

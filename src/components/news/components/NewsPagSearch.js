@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { ListGroup, ListGroupItem, Container, Button } from 'react-bootstrap'
 import { FaSistrix } from 'react-icons/fa'
+import { FiTrendingUp } from 'react-icons/fi'
 import ReactPaginate from 'react-paginate'
 import '../../home/components/search.css'
 import Moment from 'react-moment'
+import { Link } from 'react-router-dom'
 
 const ListCard = (props) => {
   return (
@@ -102,10 +104,13 @@ const NewsPagSearch = () => {
   return (
     <>
       <section className="search-section">
-        <h1 className="text-center mb-5">
-          <FaSistrix size={50} />
-          Search It!
-        </h1>
+        <Link to="/">
+          <h1 className="text-center mb-5">
+            <FaSistrix size={50} />
+            Search It!
+          </h1>
+        </Link>
+
         <Container>
           <div className="row with-margin">
             <div className="col-lg-12 mb-5">
@@ -113,7 +118,7 @@ const NewsPagSearch = () => {
                 <input
                   type="text"
                   className="form-control input-lg"
-                  placeholder="Search the web"
+                  placeholder="Search the news"
                   onChange={(event) => setQ(event.target.value)}
                 />
                 <span className="input-group-btn">
@@ -121,11 +126,11 @@ const NewsPagSearch = () => {
                     className="btn btn-primary btn-lg mr-3 "
                     type="submit"
                     onClick={handleFetch}>
-                    <FaSistrix />
+                    <FaSistrix size={28} />
                   </button>
                 </span>
                 <Button variant="outline-success" onClick={handleTrending}>
-                  Trending
+                  <FiTrendingUp size={28} />
                 </Button>
               </div>
             </div>

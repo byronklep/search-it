@@ -1,9 +1,9 @@
-import ImageSearchContainer from './components/ImageSearchContainer'
+import ImagePagSearch from './components/ImagePagSearch'
 
 const Image = () => {
   return (
     <div>
-      <ImageSearchContainer />
+      <ImagePagSearch />
     </div>
   )
 }
