@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 const ImageCard = (props) => {
   return (
     <>
-      <Container className="image-search">
+      <Container key={props.id} className="image-search">
         <a href={props.url} target="_blank" rel="noreferrer">
           <img
             src={props.url}
