@@ -5,24 +5,25 @@ import ReactPaginate from 'react-paginate'
 import '../../home/components/search.css'
 import { Link } from 'react-router-dom'
 
+const REACT_APP_RAPID_API_KEY = process.env.REACT_APP_RAPID_API_KEY
+
 const ImageCard = (props) => {
   return (
     <>
-      <Container key={props.id} className="image-search">
-        <a href={props.url} target="_blank" rel="noreferrer">
-          <img
-            src={props.url}
-            onError={(e) => {
-              e.target.src =
-                'https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg'
-              e.target.onError = null
-            }}
-            alt={props.title}
-            height={200}
-            width={250}
-          />
-        </a>
-      </Container>
+      <a href={props.url} target="_blank" rel="noreferrer">
+        <img
+          src={props.url}
+          onError={(e) => {
+            e.target.src =
+              'https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg'
+            e.target.onError = null
+          }}
+          alt={props.title}
+          height={200}
+          width={250}
+          key={props.title}
+        />
+      </a>
     </>
   )
 }
@@ -40,15 +41,14 @@ const ImagePagSearch = () => {
       {
         method: 'GET',
         headers: {
-          'x-rapidapi-key':
-            'f53ec3ed8fmsh56cc4f9c74af0edp18b789jsn7fb5469ef1fc',
+          'x-rapidapi-key': REACT_APP_RAPID_API_KEY,
           'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
         },
       }
     )
       .then((response) => response.json())
       .then((body) => {
-        console.log(body)
+        // console.log(body)
         setData([...body.value])
         setTotalCount(body.totalCount)
         setisLoaded(true)
@@ -100,9 +100,9 @@ const ImagePagSearch = () => {
                 data.map((item) => {
                   return (
                     <ImageCard
+                      key={item.title}
                       url={item.url}
                       title={item.title}
-                      key={item.id}
                     />
                   )
                 })

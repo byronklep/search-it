@@ -7,6 +7,8 @@ import '../../home/components/search.css'
 import Moment from 'react-moment'
 import { Link } from 'react-router-dom'
 
+const REACT_APP_RAPID_API_KEY = process.env.REACT_APP_RAPID_API_KEY
+
 const ListCard = (props) => {
   return (
     <div className="card mb-4 grow">
@@ -48,15 +50,14 @@ const NewsPagSearch = () => {
       {
         method: 'GET',
         headers: {
-          'x-rapidapi-key':
-            'f53ec3ed8fmsh56cc4f9c74af0edp18b789jsn7fb5469ef1fc',
+          'x-rapidapi-key': REACT_APP_RAPID_API_KEY,
           'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
         },
       }
     )
       .then((response) => response.json())
       .then((body) => {
-        console.log(body)
+        // console.log(body)
         setData([...body.value])
         setTotalCount(body.totalCount)
         setisLoaded(true)
@@ -78,15 +79,14 @@ const NewsPagSearch = () => {
       {
         method: 'GET',
         headers: {
-          'x-rapidapi-key':
-            'f53ec3ed8fmsh56cc4f9c74af0edp18b789jsn7fb5469ef1fc',
+          'x-rapidapi-key': REACT_APP_RAPID_API_KEY,
           'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
         },
       }
     )
       .then((response) => response.json())
       .then((body) => {
-        console.log(body)
+        // console.log(body)
         setData([...body.value])
         setTotalCount(body.totalCount)
         setisLoaded(true)

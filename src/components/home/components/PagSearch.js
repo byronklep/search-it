@@ -5,6 +5,8 @@ import ReactPaginate from 'react-paginate'
 import { Link } from 'react-router-dom'
 import './search.css'
 
+const REACT_APP_RAPID_API_KEY = process.env.REACT_APP_RAPID_API_KEY
+
 const SearchCard = (props) => {
   return (
     <div className="card mb-4 grow">
@@ -43,8 +45,7 @@ const PagSearch = () => {
       {
         method: 'GET',
         headers: {
-          'x-rapidapi-key':
-            'f53ec3ed8fmsh56cc4f9c74af0edp18b789jsn7fb5469ef1fc',
+          'x-rapidapi-key': REACT_APP_RAPID_API_KEY,
           'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
         },
       }
